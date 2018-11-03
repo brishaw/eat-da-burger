@@ -54,5 +54,11 @@ body {
 
   [type="radio"]:checked+span:after, [type="radio"].with-gap:checked+span:before, [type="radio"].with-gap:checked+span:after {
       border: 2px solid #388e3c;
-}
+  }
+  footer {
+    
+    &.cfc {
+      background-color: #da7e07;
+    }
+  }
 } // end body

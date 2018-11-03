@@ -34,5 +34,8 @@ body [type=radio]:checked + span:after, body [type=radio].with-gap:checked + spa
 body [type=radio]:checked + span:after, body [type=radio].with-gap:checked + span:before, body [type=radio].with-gap:checked + span:after {
   border: 2px solid #388e3c;
 }
+body footer.cfc {
+  background-color: #da7e07;
+}
 
 /*# sourceMappingURL=style.css.map */
