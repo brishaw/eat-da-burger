@@ -1,0 +1,24 @@
+{
+  "name": "eat-da-burger",
+  "version": "1.0.0",
+  "description": "Eat-Da-Burger is a restaurant app that lets users input the names of burgers they'd like to eat.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brishaw/eat-da-burger.git"
+  },
+  "author": "Brian Shaw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brishaw/eat-da-burger/issues"
+  },
+  "homepage": "https://github.com/brishaw/eat-da-burger#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0"
+  }
+}

@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i");
+body {
+  font-family: "Roboto", sans-serif;
+}
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font-family: "Roboto", sans-serif;
+}
+body .card .card-image span.card-title {
+  padding: 7px 24px;
+}
+body .card .card-image span.card-title.sh1 {
+  width: 100%;
+  font-size: 2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+body .card .card-image span.card-title.sh1 span {
+  transform: rotate(-17deg);
+  display: inline-block;
+  font-weight: 500;
+}
+body .sh2 {
+  text-shadow: 0 5px 5px #000000;
+  font-weight: 800;
+}
+body .card-content li {
+  padding: 5px 0;
+}
+body [type=radio]:checked + span:before {
+  border: 2px solid transparent;
+}
+body [type=radio]:checked + span:after, body [type=radio].with-gap:checked + span:after {
+  background-color: #388e3c;
+}
+body [type=radio]:checked + span:after, body [type=radio].with-gap:checked + span:before, body [type=radio].with-gap:checked + span:after {
+  border: 2px solid #388e3c;
+}
+
+/*# sourceMappingURL=style.css.map */

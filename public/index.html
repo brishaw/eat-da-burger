@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Eat Da Burger</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="assets/css/mat_cust.css" type="text/css" />
+  <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
+
+  <script id="page-template" type="text/x-handlebars-template">      
+    <div class="row">
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="card-image">
+            <img src="assets/images/burger_1.jpg">
+            <span class="card-title sh1">Burgers <span>Not</span> Devoured</span>
+            
+          </div>
+          <div class="card-content">
+            <ul>
+              {{#each cats}}
+              {{#unless devoured}}
+              {{> cat-block sleep=true}}
+              {{/unless}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>      
+      <div class="col s12 m6 l6">
+        <div class="card">
+          <div class="card-image">
+            <img src="assets/images/burger_1.jpg">
+            <span class="card-title sh1">Burgers Devoured</span>
+            
+          </div>
+          <div class="card-content">
+            <ul>
+              {{#each cats}}
+              {{#if devoured}}
+              {{> cat-block sleep=false}}
+              {{/if}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>  
+    </div><!-- end row -->
+    <div class="row">
+      <div class="col s12 m6 l6">
+
+      <h2>Add a Burger</h2>
+
+      <form class="create-form">
+          <div class="form-group">
+              <label for="ca">Burger Name:</label>
+              <input type="text" id="ca" name="name">
+          </div>
+
+          <div class="form-group">
+              <label for="sleepy">This burger has been...</label><br>
+              <p>
+                <label>
+                  <input class="green darken-2" name="sleepy" type="radio" value="1" checked />
+                  <span>Devoured</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input class="green darken-2" name="sleepy" type="radio" value="0" />
+                  <span>Not Devoured</span>
+                </label>
+              </p>
+          </div>
+
+          <button class="green darken-2 waves-effect waves-light btn add-burger" type="submit">Add Burger
+          </button>
+        </form>
+      </div>
+    </div><!-- end row -->
+  </script>
+  
+  <script id="cats-block-partial" type="text/x-handlebars-template">
+              <li>
+                <div class="grid-x grid-margin-x">
+                  <div class="medium-6 cell">
+                  <h5>{{burger_name}}</h5>
+                  </div>
+                </div>
+                <div class="grid-x grid-margin-x">
+                  <div class="medium-6 cell">
+                    <button class="green darken-2 waves-effect waves-light btn change-sleep dev-burger" data-id="{{id}}" data-newsleep="{{sleep}}"><i class="material-icons left">mood</i>
+                      {{#if sleep}}Devour It{{else}}Keep it!{{/if}}
+                    </button>
+                    <button class="green darken-2 waves-effect waves-light btn delete-cat" data-id="{{this.id}}"><i class="material-icons left">mood_bad</i>Remove from menu</button>
+                  </div>
+                </div>
+              </li>            
+          </script>
+</head>
+
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo">Eat Da Burger</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#num2">About</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center white-text sh2">Eat Da Burger</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">A Yummy Burger Eating App that You'll Love!</h5>
+        </div>
+        <div class="row center">
+          <a href="#num1" id="download-button" class="btn-large waves-effect waves-light green darken-2">Get
+            Started</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/images/burger4.jpg" alt="Unsplashed background img 1"></div>
+  </div>
+
+
+  <div id="num1" class="container">
+    <div class="section">
+<!-- handlebars testing -->
+<div id="app" class="grid-x grid-margin-x"></div>
+<!-- /handlebars testing -->
+      <!--   Card Section   -->
+     
+    
+
+    </div>
+  </div>
+
+
+  <div id="num2" class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A Yummy Burger Eating App that You'll Love!</h5>
+        </div>
+        <div class="row center">
+          <a href="#num1" id="download-button" class="btn-large waves-effect waves-light green darken-2">Hurry Up</a>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/images/burger2.jpg" alt="Unsplashed background img 2"></div>
+  </div>
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>What is it?</h4>
+          <p class="left-align light">Eat Da Burger is a restaurant app that lets users input the names of burgers they'd like to eat.</p>
+          
+          <p class="left-align light">Whenever a burger's name is submitted, Eat Da Burger will display the burger on the left side of the page -- waiting to be devoured.</p>
+          
+          <p class="left-align light">Each burger in the waiting area also has a `Devour it!` button. When this button is clicked, the burger will move to the right side of the page.</p>
+          
+          <p class="left-align light">Eat Da Burger stores every burger in a database, whether devoured or not.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row center">
+          <h5 class="header col s12 light">A Yummy Burger Eating App that You'll Love!</h5>
+        </div>
+        <div class="row center">
+          <a href="#num1" id="download-button" class="btn-large waves-effect waves-light green darken-2">Get back up there</a>
+        </div>
+      </div>
+    </div>
+    <div class="parallax"><img src="assets/images/burger1.jpg" alt="Unsplashed background img 3"></div>
+  </div>
+
+  <footer class="page-footer teal">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">App Bio</h5>
+          <p class="left-align light">This is a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!).</p>
+          <p class="left-align light">This app follows the MVC design pattern; using Node and MySQL to query and route data, and
+            Handlebars to generate the HTML.</p>
+
+
+        </div>
+        <!-- <div class="col l3 s12">
+          <h5 class="white-text">Settings</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+        <div class="col l3 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Link 1</a></li>
+            <li><a class="white-text" href="#!">Link 2</a></li>
+            <li><a class="white-text" href="#!">Link 3</a></li>
+            <li><a class="white-text" href="#!">Link 4</a></li>
+          </ul>
+        </div> -->
+      </div><!-- // end row -->
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by Brian
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+  <script src="/assets/js/init.js"></script>
+  <script src="/assets/js/script.js"></script>
+</body>
+
+</html>
