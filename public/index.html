@@ -18,15 +18,14 @@
         <div class="card">
           <div class="card-image">
             <img src="assets/images/burger_1.jpg">
-            <span class="card-title sh1">Burgers <span>Not</span> Devoured</span>
-            
+            <span class="card-title sh1">Burgers <span>Not</span> Devoured</span> 
           </div>
           <div class="card-content">
             <ul>
-              {{#each cats}}
-              {{#unless devoured}}
-              {{> cat-block sleep=true}}
-              {{/unless}}
+              {{#each burgers}}
+                {{#unless devoured}}
+                  {{> burger-block devour=true}}
+                {{/unless}}
               {{/each}}
             </ul>
           </div>
@@ -36,15 +35,14 @@
         <div class="card">
           <div class="card-image">
             <img src="assets/images/burger_1.jpg">
-            <span class="card-title sh1">Burgers Devoured</span>
-            
+            <span class="card-title sh1">Burgers Devoured</span>       
           </div>
           <div class="card-content">
             <ul>
-              {{#each cats}}
-              {{#if devoured}}
-              {{> cat-block sleep=false}}
-              {{/if}}
+              {{#each burgers}}
+                {{#if devoured}}
+                  {{> burger-block devour=false}}
+                {{/if}}
               {{/each}}
             </ul>
           </div>
@@ -63,16 +61,16 @@
           </div>
 
           <div class="form-group">
-              <label for="sleepy">This burger has been...</label><br>
+              <label for="devoured">This burger has been...</label><br>
               <p>
                 <label>
-                  <input class="green darken-2" name="sleepy" type="radio" value="1" checked />
+                  <input class="green darken-2" name="devoured" type="radio" value="1" checked />
                   <span>Devoured</span>
                 </label>
               </p>
               <p>
                 <label>
-                  <input class="green darken-2" name="sleepy" type="radio" value="0" />
+                  <input class="green darken-2" name="devoured" type="radio" value="0" />
                   <span>Not Devoured</span>
                 </label>
               </p>
@@ -85,23 +83,23 @@
     </div><!-- end row -->
   </script>
   
-  <script id="cats-block-partial" type="text/x-handlebars-template">
-              <li>
-                <div class="grid-x grid-margin-x">
-                  <div class="medium-6 cell">
-                  <h5>{{burger_name}}</h5>
-                  </div>
-                </div>
-                <div class="grid-x grid-margin-x">
-                  <div class="medium-6 cell">
-                    <button class="green darken-2 waves-effect waves-light btn change-sleep dev-burger" data-id="{{id}}" data-newsleep="{{sleep}}"><i class="material-icons left">mood</i>
-                      {{#if sleep}}Devour It{{else}}Keep it!{{/if}}
-                    </button>
-                    <button class="green darken-2 waves-effect waves-light btn delete-cat" data-id="{{this.id}}"><i class="material-icons left">mood_bad</i>Remove from menu</button>
-                  </div>
-                </div>
-              </li>            
-          </script>
+  <script id="burgers-block-partial" type="text/x-handlebars-template">
+    <li>
+      <div class="grid-x grid-margin-x">
+        <div class="medium-6 cell">
+        <h5>{{burger_name}}</h5>
+        </div>
+      </div>
+      <div class="grid-x grid-margin-x">
+        <div class="medium-6 cell">
+          <button class="green darken-2 waves-effect waves-light btn change-devour dev-burger" data-id="{{id}}" data-newdevour="{{devour}}"><i class="material-icons left">mood</i>
+            {{#if devour}}Devour It{{else}}Keep it!{{/if}}
+          </button>
+          <button class="green darken-2 waves-effect waves-light btn delete-burger" data-id="{{this.id}}"><i class="material-icons left">mood_bad</i>Remove from menu</button>
+        </div>
+      </div>
+    </li>            
+  </script>
 </head>
 
 <body>
@@ -141,9 +139,10 @@
 
   <div id="num1" class="container">
     <div class="section">
-<!-- handlebars testing -->
+<!-- handlebars  -->
 <div id="app" class="grid-x grid-margin-x"></div>
-<!-- /handlebars testing -->
+<!-- /handlebars -->
+
       <!--   Card Section   -->
      
     
@@ -212,24 +211,7 @@
 
 
         </div>
-        <!-- <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Connect</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div> -->
+      
       </div><!-- // end row -->
     </div>
     <div class="footer-copyright">

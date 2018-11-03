@@ -1,6 +1,6 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
-  registerPartial("cat-block", "#cats-block-partial");
+  registerPartial("burger-block", "#burgers-block-partial");
   displayPage();
   setupEventHandlers();
 });
@@ -15,9 +15,9 @@ function registerPartial(name, partialId) {
 
 function displayPage() {
   // Send the GET request.
-  $.get("/api/cats/").then(
-    function(cats) {
-      renderTemplate({cats: cats});
+  $.get("/api/burgers/").then(
+    function(burgers) {
+      renderTemplate({burgers: burgers});
     }
   );
 }
@@ -30,21 +30,21 @@ function renderTemplate(data) {
 }
 
 function setupEventHandlers() {
-  $(document).on("click", ".change-sleep", function(event) {
+  $(document).on("click", ".change-devour", function(event) {
     var id = $(this).data("id");
-    var newSleep = $(this).data("newsleep");
+    var newDevour = $(this).data("newdevour");
 
-    var newSleepState = {
-      sleepy: newSleep
+    var newDevourState = {
+      devoured: newDevour
     };
 
     // Send the PUT request.
-    $.ajax("/api/cats/" + id, {
+    $.ajax("/api/burgers/" + id, {
       type: "PUT",
-      data: newSleepState
+      data: newDevourState
     }).then(
       function() {
-        console.log("changed sleep to", newSleep);
+        console.log("changed devour to", newDevour);
         // Rerender the templates with the updated list
         displayPage();
       }
@@ -55,34 +55,33 @@ function setupEventHandlers() {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
 
-    var newCat = {
+    var newBurger = {
       name: $("#ca").val().trim(),
-      // Get the sleepy value by finding an element with a "name" attribute equal to the string "sleepy" and is checked
-      sleepy: $("[name=sleepy]:checked").val().trim()
+      devoured: $("[name=devoured]:checked").val().trim()
     };
 
     // Send the POST request.
-    $.ajax("/api/cats", {
+    $.ajax("/api/burgers", {
       type: "POST",
-      data: newCat
+      data: newBurger
     }).then(
       function() {
-        console.log("created new cat");
+        console.log("created new burger");
         // Rerender the templates with the updated list
         displayPage();
       }
     );
   });
 
-  $(document).on("click", ".delete-cat", function(event) {
+  $(document).on("click", ".delete-burger", function(event) {
     var id = $(this).data("id");
 
     // Send the DELETE request.
-    $.ajax("/api/cats/" + id, {
+    $.ajax("/api/burgers/" + id, {
       type: "DELETE"
     }).then(
       function() {
-        console.log("deleted cat", id);
+        console.log("deleted burger", id);
         // Rerender the templates with the updated list
         displayPage();
       }
